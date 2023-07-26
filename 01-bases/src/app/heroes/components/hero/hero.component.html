@@ -1,0 +1,53 @@
+<h1>{{ name }} component</h1>
+
+<dl>
+    <td>Nombre: </td>
+    <dd>{{ name }}</dd>
+
+    <td>Edad: </td>
+    <dd>{{ edad }}</dd>
+
+    <td>Método: </td>
+    <dd>{{ hello ()}}</dd>
+
+    <td>Capitalizado: </td>
+    <dd>{{  capitalizedName  }}</dd>
+</dl>
+<div class="btn-group">
+    <button
+        *ngIf="name !== 'Tony Stark'"
+        (click)="changeName()"
+        class="btn btn-sm btn-primary">
+        Cambiar Nombre
+    </button>
+    <button
+        *ngIf="edad !== 50"
+        (click)="changeEdad()"
+        class="btn btn-sm btn-primary">
+        Cambiar Edad
+    </button>
+
+    <button
+        (click)="resetComponent()"
+        class="btn btn-sm btn-success">
+        Reset
+    </button>
+</div>
+
+<div class="row pt-3">
+    <div class="col-md">
+        <div class="card text-center">
+            <div class="card-header text-bg-danger">
+                ¡Atención!
+            </div>
+            <div class="card-body">
+                <p class="card-text">
+                    En Angular es importante priorizar el One-way data binding.
+                    <br>
+                    Y por ende, evitar el uso de Two-way data binding.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+

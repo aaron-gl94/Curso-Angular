@@ -1,0 +1,30 @@
+<div class="col-md">
+    <h3>Listado de heroes</h3>
+
+    <div class="card">
+        <div class="card-body">
+            <p *ngIf="heroRemoved; else noHeroRemoved">El heroe borrado fue: <span class="text-danger">{{heroRemoved}}</span>!</p>
+            <ng-template #noHeroRemoved>
+                <!-- Esto se conoce como una referencia local #noHeroRemoved -->
+                <p>No se ha borrado ningún Heroe...</p>
+            </ng-template>
+            
+            
+            <div *ngIf="heroNames.length > 0" class="d-grid gap-2">
+                <button
+                    (click)="removeLasthero()"
+                    class="btn btn-sm btn-block btn-outline-danger">
+                    Borrar último Heroe
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <ul class="mt-2 list-group">
+        <li
+            *ngFor="let hero of heroNames"
+            class="list-group-item">
+            {{hero}}
+        </li>
+    </ul>
+</div>
