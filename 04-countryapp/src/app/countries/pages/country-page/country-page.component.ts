@@ -11,7 +11,9 @@ import { Country } from '../../interfaces/search.interface';
   styles: [` /* img { width: 50px } */ `]
 })
 export class CountryPageComponent implements OnInit{
-
+  public placeholder: string = `Search by Country`;
+  public isLoading: boolean = false;
+  public initValue: string = '';
   public country?: Country;
 
   constructor(
@@ -21,14 +23,16 @@ export class CountryPageComponent implements OnInit{
   ) {}
 
   ngOnInit(): void {
-    
+    this.initValue  = this.countriesService.cacheStore.byCapital.term;
+    this.country    = this.countriesService.cacheStore.byCountry.countries[0];
+
     this.activatedRoute.params
     .pipe(
       switchMap(({ id }) => this.countriesService.searchCountryByAlphaCode(id) )
     )
     .subscribe( country => {
       if (!country) return this.router.navigateByUrl('');
-      //console.log({ country });
+        //console.log({ country });
       return this.country = country;
     })
   }

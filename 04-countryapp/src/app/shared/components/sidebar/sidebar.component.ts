@@ -9,6 +9,4 @@ import { Component } from '@angular/core';
     }
   `]
 })
-export class SidebarComponent {
-
-}
+export class SidebarComponent { }
